@@ -1,1 +1,19 @@
 {% extends "base.html" %}
+
+{% block title %}Homepage{% endblock title %}
+
+{% block body %}
+    <form method="get" action="{{ url_for('search.search_name')}}">
+        <h3>Search for 
+            <select name="type" id="search-type-select">
+                <option value="anime">Anime</option>
+                <option value="manga">Manga & Novel</option>
+            </select>
+        </h3>
+
+        <label for="name">Name</label>
+        <input name="name" value="" minlength="3" required>
+        <input type="submit" value="Search">
+        <input type="hidden" name="page" value="1">
+    </form>
+{% endblock body %}

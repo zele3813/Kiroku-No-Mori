@@ -6,3 +6,7 @@
 body{
     background-color: skyblue;
 }
+
+.bolded{
+    font-weight: bold;
+}

@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Kiroku No Mori - {% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %} - Kiroku no Mori</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <nav>
+        <h1><a href="{{ url_for('index') }}">Kiroku no Mori</a></h1>
+    </nav>
+
 </head>
 <body>
-    <h1>PLACEHOLDER</h1>
+    {% block body %}
+    {% endblock body %}
+
+    <footer>
+        FOOTER PLACEHOLDER
+        {% block footer %}
+        {% endblock footer %}
+    </footer>
 </body>
 </html>

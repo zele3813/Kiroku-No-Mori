@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Search Result
+{% endblock title %}
+
+{% block body %}
+    <h1>{{ name }}</h1>
+    {% for entry in data %}
+        <div class="">
+            <a href="{{ url_for(url_for_search_id, id=entry['node']['id']) + '?type=' + type }}">{{ entry["node"]["title"] }}</a>
+            <img src="{{ entry['node']['main_picture']['medium'] }}" alt="{{ entry['node']['title'] }}">
+        </div>
+        <br>
+    {% endfor %}
+
+    <span>
+        <a></a>
+        {% for i in pages %}
+            {% if i == cur_page %}
+                <span>{{i}}</span>
+            {% else %}
+                <a href="{{ url_for(url_for_search_name) + '?type='+ type + '&name=' + name + '&page=' + i|string}}">{{i}}</a>
+            {% endif %}
+        {% endfor %}
+        <p>{{paging["previous"], paging["next"]}}</p>
+        <form>
+            <input type="text" name="page" value="{{ cur_page }}">
+            <input type="submit">
+            <input type="hidden" name="name" value="{{ name }}">
+        </form>
+    </span>
+    
+
+{% endblock body %}
+
+{% block footer %}
+    <p>Data sourced from <a href="https://myanimelist.net/" target="_blank">MyAnimeList</a>.</p>
+{% endblock footer %}   
